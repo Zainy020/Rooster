@@ -1,1187 +1,2545 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simran's Henna</title>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Simply Henna Roostersysteem - interne planning en beschikbaarheid."
+  >
+
+  <meta
+    name="robots"
+    content="noindex, nofollow"
+  >
+
+  <title>Simply Henna Roostersysteem</title>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fff0f6;
-      color: #660033;
+
+    :root {
+      --background: #f7f1eb;
+      --card: #fffaf6;
+
+      --brown: #4e342e;
+      --dark-brown: #3b2723;
+      --soft-brown: #8d6e63;
+      --light-brown: #eaded5;
+
+      --border: rgba(78, 52, 46, 0.12);
+
+      --green: #47745a;
+      --green-soft: #dcebe1;
+
+      --orange: #a46b2a;
+      --orange-soft: #f4e5ce;
+
+      --red: #9c4c48;
+      --red-soft: #f0d9d7;
+
+      --gray: #756e69;
+      --gray-soft: #e8e4e1;
+
+      --white: #ffffff;
+    }
+
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    header {
-      background-color: #ff66aa;
-      color: white;
-      text-align: center;
-      padding: 8px 0;
-      font-weight: bold;
-      font-size: 1rem;
+
+
+    html {
+      scroll-behavior: smooth;
     }
-    nav {
-      background-color: #ffb3d9;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 0;
+
+
+    body {
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(141, 110, 99, 0.12),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 55%,
+          rgba(78, 52, 46, 0.08),
+          transparent 35%
+        ),
+        var(--background);
+
+      color: var(--brown);
+
+      font-family:
+        "Poppins",
+        sans-serif;
     }
-    nav a {
-      color: #660033;
-      text-decoration: none;
-      margin: 8px 15px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: color 0.3s ease;
+
+
+    button {
+      font: inherit;
+      color: inherit;
     }
-    nav a:hover {
-      color: #cc0066;
+
+
+    a {
+      color: inherit;
     }
-    section {
-      display: none;
-      padding: 20px;
-      max-width: 900px;
-      margin: 20px auto;
-      background-color: #ffe6f0;
-      border-radius: 8px;
-      box-shadow: 0 0 8px #ffb3d9;
-    }
-    section.active {
-      display: block;
-    }
-    footer {
-      background-color: #ff66aa;
-      color: white;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 900px;
+
+
+    .container {
+      width: min(1450px, calc(100% - 40px));
       margin: 0 auto;
-      background-color: white;
-      color: #660033;
-      box-shadow: 0 0 8px #ffb3d9;
-      border-radius: 6px;
-      overflow: hidden;
     }
-    th, td {
-      border: 1px solid #ffb3d9;
-      padding: 8px 10px;
-      text-align: center;
+
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+
+    header {
+      padding: 22px 0;
+    }
+
+
+    .nav {
+      min-height: 68px;
+
+      padding: 12px 14px 12px 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+
+      background: rgba(255, 250, 246, 0.9);
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      box-shadow:
+        0 15px 40px rgba(78, 52, 46, 0.07);
+
+      backdrop-filter: blur(16px);
+    }
+
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      color: var(--dark-brown);
+
+      text-decoration: none;
+
+      font-size: 13px;
       font-weight: 600;
-      font-size: 0.9rem;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
-    th {
-      background-color: #ff66aa;
+
+
+    .logo-dot {
+      width: 9px;
+      height: 9px;
+
+      background: var(--green);
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 0 5px var(--green-soft);
+    }
+
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    .system-status {
+      padding: 10px 15px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+
+      background: var(--green-soft);
+      color: var(--green);
+
+      border-radius: 999px;
+
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+
+    .system-status-dot {
+      width: 7px;
+      height: 7px;
+
+      background: var(--green);
+
+      border-radius: 50%;
+
+      animation: pulse 2s infinite;
+    }
+
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+
+    }
+
+
+    .medeweb-button {
+      padding: 13px 19px;
+
+      background: var(--brown);
+      color: white;
+
+      border-radius: 999px;
+
+      text-decoration: none;
+
+      font-size: 11px;
+      font-weight: 500;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+
+    .medeweb-button:hover {
+      transform: translateY(-2px);
+
+      background: var(--dark-brown);
+    }
+
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+
+    .intro {
+      padding: 35px 0 40px;
+    }
+
+
+    .intro-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr auto;
+
+      align-items: end;
+
+      gap: 40px;
+    }
+
+
+    .section-label {
+      margin-bottom: 12px;
+
+      color: var(--soft-brown);
+
+      font-size: 11px;
+      font-weight: 600;
+
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+
+    h1,
+    h2,
+    h3 {
+      font-family:
+        "DM Serif Display",
+        serif;
+
+      font-weight: 400;
+    }
+
+
+    h1 {
+      color: var(--dark-brown);
+
+      font-size:
+        clamp(
+          52px,
+          8vw,
+          88px
+        );
+
+      line-height: 0.98;
+
+      letter-spacing: -0.025em;
+    }
+
+
+    .intro-text {
+      max-width: 650px;
+
+      margin-top: 20px;
+
+      color: var(--soft-brown);
+
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+    .today-card {
+      min-width: 220px;
+
+      padding: 24px 27px;
+
+      background: rgba(255, 250, 246, 0.9);
+
+      border: 1px solid var(--border);
+      border-radius: 23px;
+
+      box-shadow:
+        0 15px 40px rgba(78, 52, 46, 0.05);
+    }
+
+
+    .today-label {
+      color: var(--soft-brown);
+
+      font-size: 10px;
+      font-weight: 600;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+
+    .today-date {
+      margin-top: 8px;
+
+      color: var(--dark-brown);
+
+      font-family:
+        "DM Serif Display",
+        serif;
+
+      font-size: 24px;
+    }
+
+
+    .today-time {
+      margin-top: 4px;
+
+      color: var(--soft-brown);
+
+      font-size: 11px;
+    }
+
+
+
+    /* =========================
+       PERSON SELECTOR
+    ========================= */
+
+
+    .person-selector {
+      margin-bottom: 18px;
+
+      padding: 8px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 8px;
+
+      background: rgba(255, 250, 246, 0.88);
+
+      border: 1px solid var(--border);
+      border-radius: 24px;
+
+      box-shadow:
+        0 15px 40px rgba(78, 52, 46, 0.05);
+    }
+
+
+    .person-button {
+      min-height: 78px;
+
+      padding: 15px 20px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      background: transparent;
+      color: var(--brown);
+
+      border: 0;
+      border-radius: 18px;
+
+      text-align: left;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .person-button:hover {
+      background: var(--light-brown);
+    }
+
+
+    .person-button.active {
+      background: var(--brown);
+      color: white;
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 10px 25px rgba(78, 52, 46, 0.18);
+    }
+
+
+    .person-avatar {
+      width: 45px;
+      height: 45px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--light-brown);
+      color: var(--dark-brown);
+
+      border-radius: 50%;
+
+      font-family:
+        "DM Serif Display",
+        serif;
+
+      font-size: 19px;
+    }
+
+
+    .person-button.active .person-avatar {
+      background: rgba(255, 255, 255, 0.16);
       color: white;
     }
+
+
+    .person-name {
+      display: block;
+
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+
+    .person-role {
+      display: block;
+
+      margin-top: 3px;
+
+      color: var(--soft-brown);
+
+      font-size: 9px;
+    }
+
+
+    .person-button.active .person-role {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+
+
+    /* =========================
+       ALERT
+    ========================= */
+
+
+    .alert {
+      margin-bottom: 18px;
+
+      padding: 20px 25px;
+
+      display: none;
+      align-items: center;
+
+      gap: 17px;
+
+      background: var(--red-soft);
+
+      border: 1px solid rgba(156, 76, 72, 0.17);
+      border-radius: 20px;
+    }
+
+
+    .alert.show {
+      display: flex;
+    }
+
+
+    .alert-icon {
+      width: 45px;
+      height: 45px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(255, 255, 255, 0.45);
+
+      border-radius: 50%;
+
+      font-size: 18px;
+    }
+
+
+    .alert strong {
+      display: block;
+
+      color: var(--dark-brown);
+
+      font-size: 12px;
+    }
+
+
+    .alert p {
+      margin-top: 4px;
+
+      color: var(--soft-brown);
+
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+
+
+    /* =========================
+       WEEK NAVIGATION
+    ========================= */
+
+
+    .week-toolbar {
+      margin-bottom: 18px;
+
+      padding: 16px 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      background: rgba(255, 250, 246, 0.88);
+
+      border: 1px solid var(--border);
+      border-radius: 22px;
+
+      box-shadow:
+        0 15px 40px rgba(78, 52, 46, 0.04);
+    }
+
+
+    .week-tabs {
+      display: flex;
+
+      gap: 7px;
+    }
+
+
+    .week-button {
+      padding: 11px 17px;
+
+      background: transparent;
+      color: var(--soft-brown);
+
+      border: 0;
+      border-radius: 999px;
+
+      font-size: 10px;
+      font-weight: 500;
+
+      cursor: pointer;
+    }
+
+
+    .week-button.active {
+      background: var(--brown);
+      color: white;
+    }
+
+
+    .week-information {
+      text-align: right;
+    }
+
+
+    .week-information strong {
+      display: block;
+
+      color: var(--dark-brown);
+
+      font-size: 12px;
+    }
+
+
+    .week-information span {
+      display: block;
+
+      margin-top: 3px;
+
+      color: var(--soft-brown);
+
+      font-size: 9px;
+    }
+
+
+
+    /* =========================
+       LEGEND
+    ========================= */
+
+
+    .legend {
+      margin-bottom: 18px;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 8px;
+    }
+
+
+    .legend-item {
+      padding: 8px 12px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+
+      background: rgba(255, 250, 246, 0.8);
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      color: var(--soft-brown);
+
+      font-size: 9px;
+      font-weight: 500;
+    }
+
+
+    .legend-color {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 3px;
+    }
+
+
+    .legend-green {
+      background: var(--green);
+    }
+
+
+    .legend-orange {
+      background: var(--orange);
+    }
+
+
+    .legend-red {
+      background: var(--red);
+    }
+
+
+    .legend-gray {
+      background: var(--gray);
+    }
+
+
+
+    /* =========================
+       TABLE
+    ========================= */
+
+
+    .schedule-wrapper {
+      margin-bottom: 50px;
+
+      overflow: auto;
+
+      background: rgba(255, 250, 246, 0.92);
+
+      border: 1px solid var(--border);
+      border-radius: 26px;
+
+      box-shadow:
+        0 20px 60px rgba(78, 52, 46, 0.07);
+    }
+
+
+    .schedule-table {
+      width: 100%;
+      min-width: 1000px;
+
+      border-collapse: separate;
+      border-spacing: 0;
+
+      table-layout: fixed;
+    }
+
+
+    .schedule-table th,
+    .schedule-table td {
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .schedule-table th:last-child,
+    .schedule-table td:last-child {
+      border-right: 0;
+    }
+
+
+    .schedule-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+
+    .time-header {
+      width: 95px;
+
+      padding: 20px 15px;
+
+      position: sticky;
+      left: 0;
+      z-index: 5;
+
+      background: var(--card);
+
+      color: var(--soft-brown);
+
+      font-size: 9px;
+      font-weight: 600;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+
+    .day-header {
+      padding: 18px 12px;
+
+      background: var(--card);
+
+      text-align: center;
+    }
+
+
+    .day-header.today {
+      background: var(--light-brown);
+    }
+
+
+    .day-name {
+      display: block;
+
+      color: var(--dark-brown);
+
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+
+    .day-date {
+      display: block;
+
+      margin-top: 4px;
+
+      color: var(--soft-brown);
+
+      font-size: 9px;
+      font-weight: 400;
+    }
+
+
+    .time-cell {
+      height: 55px;
+
+      padding: 0 15px;
+
+      position: sticky;
+      left: 0;
+      z-index: 4;
+
+      background: var(--card);
+
+      color: var(--dark-brown);
+
+      font-size: 10px;
+      font-weight: 600;
+
+      text-align: center;
+    }
+
+
+    .schedule-cell {
+      height: 55px;
+
+      position: relative;
+
+      cursor: default;
+
+      transition:
+        filter 0.15s ease,
+        transform 0.15s ease;
+    }
+
+
+    .schedule-cell:hover {
+      filter: brightness(0.96);
+
+      z-index: 3;
+    }
+
+
+    .schedule-cell.available {
+      background: var(--green-soft);
+    }
+
+
+    .schedule-cell.request {
+      background: var(--orange-soft);
+    }
+
+
+    .schedule-cell.unavailable {
+      background: var(--red-soft);
+    }
+
+
+    .schedule-cell.na {
+      background: var(--gray-soft);
+    }
+
+
+    .cell-content {
+      width: 100%;
+      height: 100%;
+
+      padding: 7px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+    }
+
+
+    .cell-label {
+      font-size: 8px;
+      font-weight: 500;
+
+      line-height: 1.3;
+    }
+
+
+    .schedule-cell.available .cell-label {
+      color: var(--green);
+    }
+
+
+    .schedule-cell.request .cell-label {
+      color: var(--orange);
+    }
+
+
+    .schedule-cell.unavailable .cell-label {
+      color: var(--red);
+    }
+
+
+    .schedule-cell.na .cell-label {
+      color: var(--gray);
+    }
+
+
+    .tooltip {
+      min-width: 190px;
+      max-width: 250px;
+
+      padding: 13px 15px;
+
+      position: absolute;
+
+      left: 50%;
+      bottom: calc(100% + 8px);
+
+      transform:
+        translateX(-50%)
+        translateY(5px);
+
+      z-index: 50;
+
+      background: var(--dark-brown);
+      color: white;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 12px 30px rgba(59, 39, 35, 0.25);
+
+      opacity: 0;
+      visibility: hidden;
+
+      pointer-events: none;
+
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+
+      font-size: 9px;
+      line-height: 1.6;
+
+      text-align: left;
+    }
+
+
+    .schedule-cell:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+
+      transform:
+        translateX(-50%)
+        translateY(0);
+    }
+
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+
+    footer {
+      padding: 20px 0 45px;
+    }
+
+
+    .footer {
+      padding-top: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      border-top: 1px solid var(--border);
+    }
+
+
+    .footer-brand {
+      color: var(--dark-brown);
+
+      font-family:
+        "DM Serif Display",
+        serif;
+
+      font-size: 21px;
+    }
+
+
+    .footer-text {
+      margin-top: 5px;
+
+      color: var(--soft-brown);
+
+      font-size: 9px;
+    }
+
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 15px;
+    }
+
+
+    .footer-links a {
+      color: var(--soft-brown);
+
+      text-decoration: none;
+
+      font-size: 10px;
+    }
+
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+
+    @media (max-width: 800px) {
+
+      .container {
+        width: min(calc(100% - 28px), 1450px);
+      }
+
+
+      header {
+        padding: 14px 0;
+      }
+
+
+      .nav {
+        min-height: 62px;
+
+        padding: 9px 9px 9px 18px;
+      }
+
+
+      .logo {
+        font-size: 10px;
+      }
+
+
+      .system-status {
+        display: none;
+      }
+
+
+      .medeweb-button {
+        padding: 12px 15px;
+
+        font-size: 9px;
+      }
+
+
+      .intro {
+        padding: 30px 0;
+      }
+
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .today-card {
+        min-width: 0;
+      }
+
+
+      .person-selector {
+        grid-template-columns: 1fr;
+      }
+
+
+      .person-button {
+        min-height: 65px;
+      }
+
+
+      .alert {
+        align-items: flex-start;
+      }
+
+
+      .week-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+
+      .week-tabs {
+        width: 100%;
+      }
+
+
+      .week-button {
+        flex: 1;
+
+        padding: 11px 8px;
+      }
+
+
+      .week-information {
+        text-align: left;
+      }
+
+
+      .schedule-wrapper {
+        border-radius: 20px;
+      }
+
+
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+    }
+
   </style>
+
 </head>
+
+
 <body>
+
+
   <header>
-    <div>beta versie 1.5.2 | let op de officiële website wordt 15 juni 2025 gelanceerd</div>
+
+    <div class="container">
+
+      <nav class="nav">
+
+        <a
+          class="logo"
+          href="#"
+        >
+
+          <span class="logo-dot"></span>
+
+          Simply Henna / Rooster
+
+        </a>
+
+
+        <div class="nav-right">
+
+          <div class="system-status">
+
+            <span class="system-status-dot"></span>
+
+            Roostersysteem operationeel
+
+          </div>
+
+
+          <a
+            class="medeweb-button"
+            href="https://medeweb.simplyhenna.nl"
+          >
+            Naar Medeweb →
+          </a>
+
+        </div>
+
+      </nav>
+
+    </div>
+
   </header>
 
-  <nav>
-    <a onclick="openTab('home')">Home</a>
-    <a onclick="openTab('rooster_asz_week_23')">R- Zainy week 23</a>
-    <a onclick="openTab('rooster_asz_week_24')">R- Zainy week 24</a>
-    <a onclick="openTab('rooster_asz_week_25')">R- Zainy week 25</a>
-    <a onclick="openTab('rooster_asz_week_26')">R- Zainy week 26</a>
-    <a onclick="openTab('rooster_asz_week_27')">R- Zainy week 27</a>
-    <a onclick="openTab('rooster_sim_week_23')">R- Simran week 23</a>
-    <a onclick="openTab('rooster_sim_week_24')">R- Simran week 24</a>
-    <a onclick="openTab('rooster_sim_week_25')">R- Simran week 25 Problems</a>
-  </nav>
 
-  <section id="home" class="active">
-    <p>Hier is het rooster van het management en van de henna artiest!</p>
-  </section>
 
-  <section id="rooster_asz_week_23">
-    <p>Rooster van het mananagement </p>
-        <table>
-      <thead>
-        <tr>
-          <th>Tijd</th>
-          <th>Maandag</th>
-          <th>Dinsdag</th>
-          <th>Woensdag</th>
-          <th>Donderdag</th>
-          <th>vrijdag</th>
-          <th>Zaterdag</th>
-          <th>Zondag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>12:00 - 13:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>13:00 - 14:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>14:00 - 15:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>            <td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>   
-        </tr>
-        <tr>
-            <td>15:00 - 16:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>16:00 - 17:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>17:00 - 18:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>18:00 - 19:00</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>19:00 - 20:00</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>21:00 - 22:00</td>
-            <td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>            </tr>
-        <tr>
-            <td>22:00 - 23:00</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-        </tr>
-        <tr>
-            <td>23:00 - 00:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: white;">E I D M U B A R A K</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-        </tr>
-      </tbody>
-    </table>
-  </section>
+  <main>
 
-  <section id="rooster_asz_week_24">
-    <p>Test rooster Zainy week 24</p>
-        <table>
-      <thead>
-        <tr>
-          <th>Tijd</th>
-          <th>Maandag</th>
-          <th>Dinsdag</th>
-          <th>Woensdag</th>
-          <th>Donderdag</th>
-          <th>Vrijdag</th>
-          <th>Zaterdag</th>
-          <th>Zondag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>12:00 - 13:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>13:00 - 14:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>14:00 - 15:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>   
-        </tr>
-        <tr>
-            <td>15:00 - 16:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>16:00 - 17:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>17:00 - 18:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>18:00 - 19:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>19:00 - 20:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>21:00 - 22:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>            </tr>
-        <tr>
-            <td>22:00 - 23:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>23:00 - 00:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>        </tr>
-      </tbody>
-    </table>
-  </section>
 
-  <section id="rooster_asz_week_25">
-    <p>Test rooster Zainy week 25</p>
-        <table>
-      <thead>
-        <tr>
-          <th>Tijd</th>
-          <th>Maandag</th>
-          <th>Dinsdag</th>
-          <th>Woensdag</th>
-          <th>Donderdag</th>
-          <th>Vrijdag</th>
-          <th>Zaterdag</th>
-          <th>Zondag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>12:00 - 13:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>13:00 - 14:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>14:00 - 15:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>   
-        </tr>
-        <tr>
-            <td>15:00 - 16:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>16:00 - 17:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>17:00 - 18:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>18:00 - 19:00</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>19:00 - 20:00</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>21:00 - 22:00</td>
-            <td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*ABSENT</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*--- --- ---</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>            </tr>
-        <tr>
-            <td>22:00 - 23:00</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>23:00 - 00:00</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: gray;">*N/A</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    <section class="intro">
 
-  <section id="rooster_asz_week_26">
-    <p>Test rooster Zainy week 26</p>
-        <table>
-      <thead>
-        <tr>
-          <th>Tijd</th>
-          <th>Maandag</th>
-          <th>Dinsdag</th>
-          <th>Woensdag</th>
-          <th>Donderdag</th>
-          <th>Vrijdag</th>
-          <th>Zaterdag</th>
-          <th>Zondag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>12:00 - 13:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-        </tr>
-        <tr>
-            <td>13:00 - 14:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-        </tr>
-        <tr>
-            <td>14:00 - 15:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>   
-        </tr>
-        <tr>
-            <td>15:00 - 16:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>16:00 - 17:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>17:00 - 18:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: orange;">*beschikbaar(als nodig</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)</td>
-        </tr>
-        <tr>
-            <td>18:00 - 19:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>19:00 - 20:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>21:00 - 22:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>
-<td style="background-color: red;">*Nietbeschikbaar</td>            </tr>
-        <tr>
-            <td>22:00 - 23:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td> nodig)
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-        </tr>
-        <tr>
-            <td>23:00 - 00:00</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: red;">*niet beschikbaar ivm school</td>
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-<td style="background-color: orange;">*beschikbaar(Als nodig)
-        </tr>
-      </tbody>
-    </table>
-  </section>
+      <div class="container">
 
-  <section id="rooster_asz_week_27">
-    <p>Test rooster Zainy week 27</p>
-        <table>
-      <thead>
-        <tr>
-          <th>Tijd</th>
-          <th>Maandag</th>
-          <th>Dinsdag</th>
-          <th>Woensdag</th>
-          <th>Donderdag</th>
-          <th>Vrijdag</th>
-          <th>Zaterdag</th>
-          <th>Zondag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>12:00 - 13:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-        </tr>
-        <tr>
-            <td>13:00 - 14:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-        </tr>
-        <tr>
-            <td>14:00 - 15:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>  
-        </tr>
-        <tr>
-            <td>15:00 - 16:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-        </tr>
-        <tr>
-            <td>16:00 - 17:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-        </tr>
-        <tr>
-            <td>17:00 - 18:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-        </tr>
-        <tr>
-            <td>18:00 - 19:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-        </tr>
-        <tr>
-            <td>19:00 - 20:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-        </tr>
-        <tr>
-            <td>21:00 - 22:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>            </tr>
-        <tr>
-            <td>22:00 - 23:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-        </tr>
-        <tr>
-            <td>23:00 - 00:00</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-<td style="background-color: red;">?---? ?---? ?---?</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+        <div class="intro-grid">
 
-  <section id="rooster_sim_week_23">
-    <p>Test rooster Simran week 23</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Tijd</th>
-          <th>Maandag</th>
-          <th>Dinsdag</th>
-          <th>Woensdag</th>
-          <th>Donderdag</th>
-          <th>Vrijdag</th>
-          <th>Zaterdag</th>
-          <th>Zondag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>12:00 - 13:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>13:00 - 14:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>14:00 - 15:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>15:00 - 16:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>16:00 - 17:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>17:00 - 18:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>18:00 - 19:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>19:00 - 20:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>20:00 - 21:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>21:00 - 22:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td></tr>
-        <tr>
-            <td>22:00 - 23:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-        <tr>
-            <td>23:00 - 00:00</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>
-<td style="background-color: Gray;">*N/A</td>  
-<td style="background-color: Gray;">*N/A</td>
-        </tr>
-      </tbody>
-    </table>   
-  </section>
+          <div>
 
-  <section id="rooster_sim_week_24">
-    <p>Test rooster Simran week 24</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Tijd</th>
-          <th>Maandag</th>
-          <th>Dinsdag</th>
-          <th>Woensdag</th>
-          <th>Donderdag</th>
-          <th>Vrijdag</th>
-          <th>Zaterdag</th>
-          <th>Zondag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>12:00 - 13:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>13:00 - 14:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>14:00 - 15:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>15:00 - 16:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>16:00 - 17:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>17:00 - 18:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>18:00 - 19:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>19:00 - 20:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>20:00 - 21:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>21:00 - 22:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td></tr>
-        <tr>
-            <td>22:00 - 23:00</td>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-<td style="background-color: green;">*beschikbaar</td>  
-<td style="background-color: Gray;">*Nietbeschikbaar</td>
-        </tr>
-        <tr>
-            <td>23:00 - 00:00</td
-<tr>
-<td style="background-color: white;">*officele vrije dag!!</td>  
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: green;">*beschikbaar</td>
-<td style="background-color: red;">*Niet beschikbaar uitslag CE tijdvak 1 </td>
-<td style="background-color: pink;">afspraak 7 dagen van tevoren</td>
-        </tr>
-      </tbody>
-    </table>  
-  </section>
+            <p class="section-label">
+              Interne planning
+            </p>
 
-  <section id="rooster_sim_week_25">
-    <p>Test rooster Simran week 25</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Tijd</th>
-          <th>Maandag</th>
-          <th>Dinsdag</th>
-          <th>Woensdag</th>
-          <th>Donderdag</th>
-          <th>Vrijdag</th>
-          <th>Zaterdag</th>
-          <th>Zondag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td>12:00 - 13:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>13:00 - 14:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>14:00 - 15:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>15:00 - 16:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>16:00 - 17:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>17:00 - 18:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>18:00 - 19:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>19:00 - 20:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>20:00 - 21:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>21:00 - 22:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td></tr>
-        <tr>
-            <td>22:00 - 23:00</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-        <tr>
-            <td>23:00 - 00:00</td
-<tr>
-<td style="background-color: red;">*CE TIJDVAK 2</td>  
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-<td style="background-color: red;">*CE TIJDVAK 2</td>
-        </tr>
-</section>
+            <h1>
+              Rooster.
+            </h1>
+
+            <p class="intro-text">
+
+              Bekijk de beschikbaarheid
+              van het Simply Henna-team
+              per dag en tijdvak.
+
+              Selecteer een teamlid
+              en één van de drie beschikbare weken.
+
+            </p>
+
+          </div>
+
+
+          <div class="today-card">
+
+            <p class="today-label">
+              Vandaag
+            </p>
+
+            <p
+              class="today-date"
+              id="todayDate"
+            >
+              -
+            </p>
+
+            <p
+              class="today-time"
+              id="todayTime"
+            >
+              -
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section>
+
+      <div class="container">
+
+
+        <div class="person-selector">
+
+
+          <button
+            class="person-button active"
+            data-person="zainedin"
+          >
+
+            <span class="person-avatar">
+              Z
+            </span>
+
+            <span>
+
+              <span class="person-name">
+                Zainedin
+              </span>
+
+              <span class="person-role">
+                Management
+              </span>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="person-button"
+            data-person="simran"
+          >
+
+            <span class="person-avatar">
+              S
+            </span>
+
+            <span>
+
+              <span class="person-name">
+                Simran
+              </span>
+
+              <span class="person-role">
+                Henna-artiest
+              </span>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="person-button"
+            data-person="nilaya"
+          >
+
+            <span class="person-avatar">
+              N
+            </span>
+
+            <span>
+
+              <span class="person-name">
+                Nilaya
+              </span>
+
+              <span class="person-role">
+                Henna-model
+              </span>
+
+            </span>
+
+          </button>
+
+
+        </div>
+
+
+
+        <div
+          class="alert"
+          id="scheduleAlert"
+        >
+
+          <div class="alert-icon">
+            🌊
+          </div>
+
+          <div>
+
+            <strong id="alertTitle">
+              Tijdelijke roosterafwijking
+            </strong>
+
+            <p id="alertText">
+              -
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="week-toolbar">
+
+          <div class="week-tabs">
+
+            <button
+              class="week-button active"
+              data-week="0"
+            >
+              Deze week
+            </button>
+
+            <button
+              class="week-button"
+              data-week="1"
+            >
+              Volgende
+            </button>
+
+            <button
+              class="week-button"
+              data-week="2"
+            >
+              Week daarna
+            </button>
+
+          </div>
+
+
+          <div class="week-information">
+
+            <strong id="weekTitle">
+              -
+            </strong>
+
+            <span id="weekDates">
+              -
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="legend">
+
+          <div class="legend-item">
+
+            <span class="legend-color legend-green"></span>
+
+            Beschikbaar
+
+          </div>
+
+
+          <div class="legend-item">
+
+            <span class="legend-color legend-orange"></span>
+
+            Op aanvraag
+
+          </div>
+
+
+          <div class="legend-item">
+
+            <span class="legend-color legend-red"></span>
+
+            Niet beschikbaar
+
+          </div>
+
+
+          <div class="legend-item">
+
+            <span class="legend-color legend-gray"></span>
+
+            Geen vast rooster / n.v.t.
+
+          </div>
+
+        </div>
+
+
+
+        <div class="schedule-wrapper">
+
+          <table class="schedule-table">
+
+            <thead id="scheduleHead"></thead>
+
+            <tbody id="scheduleBody"></tbody>
+
+          </table>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
 
 
   <footer>
-    De website wordt gehandeld door het management team van Simran @ Zainy
+
+    <div class="container">
+
+      <div class="footer">
+
+        <div>
+
+          <p class="footer-brand">
+            Simply Henna Roostersysteem
+          </p>
+
+          <p class="footer-text">
+
+            Interne planning ·
+            © <span id="year"></span> Simply Henna
+
+          </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <a href="https://medeweb.simplyhenna.nl">
+            Medeweb
+          </a>
+
+          <a href="https://simplyhenna.nl">
+            Officiële website
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </footer>
 
+
+
   <script>
-    function openTab(id) {
-      // Verberg alle secties
-      document.querySelectorAll("section").forEach(sec => {
-        sec.classList.remove("active");
-      });
-      // Toon de juiste sectie
-      const target = document.getElementById(id);
-      if (target) {
-        target.classList.add("active");
+
+    /* =========================
+       CONFIGURATION
+    ========================= */
+
+
+    const people = {
+
+      zainedin: {
+
+        name: "Zainedin",
+
+        role: "Management",
+
+        defaultSchedule: {
+
+          1: {
+            status: "available",
+            reason: "Beschikbaar"
+          },
+
+          2: {
+            status: "available",
+            reason: "Beschikbaar"
+          },
+
+          3: {
+            status: "available",
+            reason: "Beschikbaar"
+          },
+
+          4: {
+            status: "unavailable",
+            reason: "Fractievergadering PRO"
+          },
+
+          5: {
+            status: "available",
+            reason: "Beschikbaar"
+          },
+
+          6: {
+            status: "available",
+            reason: "Beschikbaar"
+          },
+
+          0: {
+            status: "available",
+            reason: "Beschikbaar"
+          }
+
+        }
+
+      },
+
+
+      simran: {
+
+        name: "Simran",
+
+        role: "Henna-artiest",
+
+        defaultSchedule: {
+
+          1: {
+            status: "request",
+            reason: "Beschikbaarheid op aanvraag"
+          },
+
+          2: {
+            status: "request",
+            reason: "Beschikbaarheid op aanvraag"
+          },
+
+          3: {
+            status: "request",
+            reason: "Beschikbaarheid op aanvraag"
+          },
+
+          4: {
+            status: "request",
+            reason: "Beschikbaarheid op aanvraag"
+          },
+
+          5: {
+            status: "request",
+            reason: "Beschikbaarheid op aanvraag"
+          },
+
+          6: {
+            status: "request",
+            reason: "Beschikbaarheid op aanvraag"
+          },
+
+          0: {
+            status: "request",
+            reason: "Beschikbaarheid op aanvraag"
+          }
+
+        }
+
+      },
+
+
+      nilaya: {
+
+        name: "Nilaya",
+
+        role: "Henna-model",
+
+        defaultSchedule: {
+
+          1: {
+            status: "na",
+            reason: "Geen vast rooster"
+          },
+
+          2: {
+            status: "na",
+            reason: "Geen vast rooster"
+          },
+
+          3: {
+            status: "na",
+            reason: "Geen vast rooster"
+          },
+
+          4: {
+            status: "na",
+            reason: "Geen vast rooster"
+          },
+
+          5: {
+            status: "na",
+            reason: "Geen vast rooster"
+          },
+
+          6: {
+            status: "na",
+            reason: "Geen vast rooster"
+          },
+
+          0: {
+            status: "na",
+            reason: "Geen vast rooster"
+          }
+
+        }
+
       }
+
+    };
+
+
+
+    /* =========================
+       EXCEPTIONS
+    ========================= */
+
+
+    const exceptions = {
+
+      zainedin: {
+
+        "2026-07-15": {
+
+          status: "unavailable",
+
+          reason:
+            "STRANDDAG: PROtest, progressieve jongeren",
+
+          alert:
+            "Zainedin is woensdag 15 juli niet beschikbaar vanwege STRANDDAG: PROtest, progressieve jongeren."
+
+        }
+
+      },
+
+
+      simran: {},
+
+
+      nilaya: {}
+
+    };
+
+
+
+    /* =========================
+       STATE
+    ========================= */
+
+
+    let selectedPerson = "zainedin";
+
+    let selectedWeek = 0;
+
+
+
+    const hours = [
+
+      "12:00",
+      "13:00",
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00",
+      "23:00",
+      "00:00"
+
+    ];
+
+
+
+    const dayNames = [
+
+      "Zondag",
+      "Maandag",
+      "Dinsdag",
+      "Woensdag",
+      "Donderdag",
+      "Vrijdag",
+      "Zaterdag"
+
+    ];
+
+
+
+    /* =========================
+       DATE FUNCTIONS
+    ========================= */
+
+
+    function getMonday(date) {
+
+      const result =
+        new Date(date);
+
+
+      result.setHours(
+        12,
+        0,
+        0,
+        0
+      );
+
+
+      const day =
+        result.getDay();
+
+
+      const difference =
+        result.getDate()
+        - day
+        + (
+          day === 0
+            ? -6
+            : 1
+        );
+
+
+      result.setDate(difference);
+
+
+      return result;
+
     }
+
+
+
+    function addDays(date, amount) {
+
+      const result =
+        new Date(date);
+
+
+      result.setDate(
+        result.getDate()
+        + amount
+      );
+
+
+      return result;
+
+    }
+
+
+
+    function formatDateKey(date) {
+
+      const year =
+        date.getFullYear();
+
+
+      const month =
+        String(
+          date.getMonth() + 1
+        )
+        .padStart(2, "0");
+
+
+      const day =
+        String(
+          date.getDate()
+        )
+        .padStart(2, "0");
+
+
+      return (
+        year
+        + "-"
+        + month
+        + "-"
+        + day
+      );
+
+    }
+
+
+
+    function formatShortDate(date) {
+
+      return new Intl.DateTimeFormat(
+        "nl-NL",
+        {
+          day: "numeric",
+          month: "short"
+        }
+      )
+      .format(date);
+
+    }
+
+
+
+    function getWeekNumber(date) {
+
+      const current =
+        new Date(
+          Date.UTC(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate()
+          )
+        );
+
+
+      const dayNumber =
+        current.getUTCDay() || 7;
+
+
+      current.setUTCDate(
+        current.getUTCDate()
+        + 4
+        - dayNumber
+      );
+
+
+      const yearStart =
+        new Date(
+          Date.UTC(
+            current.getUTCFullYear(),
+            0,
+            1
+          )
+        );
+
+
+      return Math.ceil(
+        (
+          (
+            current
+            - yearStart
+          )
+          / 86400000
+          + 1
+        )
+        / 7
+      );
+
+    }
+
+
+
+    /* =========================
+       STATUS
+    ========================= */
+
+
+    function getStatus(personKey, date) {
+
+      const dateKey =
+        formatDateKey(date);
+
+
+      const exception =
+        exceptions[personKey][dateKey];
+
+
+      if (exception) {
+
+        return exception;
+
+      }
+
+
+      return people[
+        personKey
+      ]
+      .defaultSchedule[
+        date.getDay()
+      ];
+
+    }
+
+
+
+    function getStatusLabel(status) {
+
+      if (status === "available") {
+        return "Beschikbaar";
+      }
+
+
+      if (status === "request") {
+        return "Op aanvraag";
+      }
+
+
+      if (status === "unavailable") {
+        return "Niet beschikbaar";
+      }
+
+
+      return "N.v.t.";
+
+    }
+
+
+
+    /* =========================
+       RENDER TABLE
+    ========================= */
+
+
+    function renderSchedule() {
+
+      const today =
+        new Date();
+
+
+      const currentMonday =
+        getMonday(today);
+
+
+      const weekMonday =
+        addDays(
+          currentMonday,
+          selectedWeek * 7
+        );
+
+
+      const weekSunday =
+        addDays(
+          weekMonday,
+          6
+        );
+
+
+      const days = [];
+
+
+      for (
+        let index = 0;
+        index < 7;
+        index++
+      ) {
+
+        days.push(
+          addDays(
+            weekMonday,
+            index
+          )
+        );
+
+      }
+
+
+
+      document
+        .getElementById("weekTitle")
+        .textContent =
+          "Week "
+          + getWeekNumber(
+            weekMonday
+          );
+
+
+      document
+        .getElementById("weekDates")
+        .textContent =
+          formatShortDate(
+            weekMonday
+          )
+          + " – "
+          + formatShortDate(
+            weekSunday
+          );
+
+
+
+      const head =
+        document.getElementById(
+          "scheduleHead"
+        );
+
+
+      head.innerHTML = "";
+
+
+      const headRow =
+        document.createElement("tr");
+
+
+      const timeHeader =
+        document.createElement("th");
+
+
+      timeHeader.className =
+        "time-header";
+
+
+      timeHeader.textContent =
+        "Tijd";
+
+
+      headRow.appendChild(
+        timeHeader
+      );
+
+
+
+      days.forEach(
+        function (date) {
+
+
+          const header =
+            document.createElement("th");
+
+
+          header.className =
+            "day-header";
+
+
+          if (
+            formatDateKey(date)
+            ===
+            formatDateKey(today)
+          ) {
+
+            header
+              .classList
+              .add("today");
+
+          }
+
+
+          header.innerHTML =
+
+            '<span class="day-name">'
+            + dayNames[
+                date.getDay()
+              ]
+            + '</span>'
+
+            +
+
+            '<span class="day-date">'
+            + formatShortDate(date)
+            + '</span>';
+
+
+          headRow.appendChild(
+            header
+          );
+
+
+        }
+      );
+
+
+      head.appendChild(
+        headRow
+      );
+
+
+
+      const body =
+        document.getElementById(
+          "scheduleBody"
+        );
+
+
+      body.innerHTML = "";
+
+
+
+      hours.forEach(
+        function (hour) {
+
+
+          const row =
+            document.createElement("tr");
+
+
+          const timeCell =
+            document.createElement("td");
+
+
+          timeCell.className =
+            "time-cell";
+
+
+          timeCell.textContent =
+            hour;
+
+
+          row.appendChild(
+            timeCell
+          );
+
+
+
+          days.forEach(
+            function (date) {
+
+
+              const status =
+                getStatus(
+                  selectedPerson,
+                  date
+                );
+
+
+              const cell =
+                document.createElement("td");
+
+
+              cell.className =
+                "schedule-cell "
+                + status.status;
+
+
+              const label =
+                getStatusLabel(
+                  status.status
+                );
+
+
+              cell.innerHTML =
+
+                '<div class="cell-content">'
+
+                +
+
+                '<span class="cell-label">'
+                + label
+                + '</span>'
+
+                +
+
+                '</div>'
+
+                +
+
+                '<div class="tooltip">'
+
+                +
+
+                '<strong>'
+                + people[
+                    selectedPerson
+                  ]
+                  .name
+                + '</strong>'
+
+                +
+
+                '<br>'
+
+                +
+
+                dayNames[
+                  date.getDay()
+                ]
+
+                +
+
+                " · "
+                + hour
+
+                +
+
+                '<br><br>'
+
+                +
+
+                status.reason
+
+                +
+
+                '</div>';
+
+
+              row.appendChild(
+                cell
+              );
+
+
+            }
+          );
+
+
+          body.appendChild(
+            row
+          );
+
+
+        }
+      );
+
+
+
+      renderAlert(days);
+
+    }
+
+
+
+    /* =========================
+       ALERT
+    ========================= */
+
+
+    function renderAlert(days) {
+
+      const alert =
+        document.getElementById(
+          "scheduleAlert"
+        );
+
+
+      const title =
+        document.getElementById(
+          "alertTitle"
+        );
+
+
+      const text =
+        document.getElementById(
+          "alertText"
+        );
+
+
+      let foundException = null;
+
+
+      days.forEach(
+        function (date) {
+
+
+          const dateKey =
+            formatDateKey(date);
+
+
+          const exception =
+            exceptions[
+              selectedPerson
+            ][dateKey];
+
+
+          if (
+            exception
+            && exception.alert
+          ) {
+
+            foundException =
+              exception;
+
+          }
+
+
+        }
+      );
+
+
+      if (foundException) {
+
+        title.textContent =
+          "Tijdelijke roosterafwijking";
+
+
+        text.textContent =
+          foundException.alert;
+
+
+        alert
+          .classList
+          .add("show");
+
+      }
+
+      else {
+
+        alert
+          .classList
+          .remove("show");
+
+      }
+
+    }
+
+
+
+    /* =========================
+       PERSON BUTTONS
+    ========================= */
+
+
+    document
+      .querySelectorAll(
+        ".person-button"
+      )
+      .forEach(
+        function (button) {
+
+
+          button.addEventListener(
+            "click",
+            function () {
+
+
+              selectedPerson =
+                button.dataset.person;
+
+
+              document
+                .querySelectorAll(
+                  ".person-button"
+                )
+                .forEach(
+                  function (item) {
+
+                    item
+                      .classList
+                      .remove("active");
+
+                  }
+                );
+
+
+              button
+                .classList
+                .add("active");
+
+
+              renderSchedule();
+
+            }
+          );
+
+
+        }
+      );
+
+
+
+    /* =========================
+       WEEK BUTTONS
+    ========================= */
+
+
+    document
+      .querySelectorAll(
+        ".week-button"
+      )
+      .forEach(
+        function (button) {
+
+
+          button.addEventListener(
+            "click",
+            function () {
+
+
+              selectedWeek =
+                Number(
+                  button.dataset.week
+                );
+
+
+              document
+                .querySelectorAll(
+                  ".week-button"
+                )
+                .forEach(
+                  function (item) {
+
+                    item
+                      .classList
+                      .remove("active");
+
+                  }
+                );
+
+
+              button
+                .classList
+                .add("active");
+
+
+              renderSchedule();
+
+            }
+          );
+
+
+        }
+      );
+
+
+
+    /* =========================
+       CLOCK
+    ========================= */
+
+
+    function updateClock() {
+
+      const now =
+        new Date();
+
+
+      const date =
+        new Intl.DateTimeFormat(
+          "nl-NL",
+          {
+            weekday: "long",
+            day: "numeric",
+            month: "long"
+          }
+        )
+        .format(now);
+
+
+      const time =
+        new Intl.DateTimeFormat(
+          "nl-NL",
+          {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+          }
+        )
+        .format(now);
+
+
+      document
+        .getElementById(
+          "todayDate"
+        )
+        .textContent =
+          date.charAt(0).toUpperCase()
+          + date.slice(1);
+
+
+      document
+        .getElementById(
+          "todayTime"
+        )
+        .textContent =
+          time;
+
+    }
+
+
+
+    /* =========================
+       INITIALISE
+    ========================= */
+
+
+    document
+      .getElementById("year")
+      .textContent =
+        new Date().getFullYear();
+
+
+    updateClock();
+
+
+    setInterval(
+      updateClock,
+      1000
+    );
+
+
+    renderSchedule();
+
+
   </script>
+
+
 </body>
+
 </html>
